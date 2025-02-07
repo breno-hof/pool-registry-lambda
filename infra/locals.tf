@@ -4,5 +4,4 @@ locals {
 	timeout				= 300
 	runtime				= "python3.8"
 	source_path			= "../src"
-	output_path			= "../${local.lambda_name}"
 }
