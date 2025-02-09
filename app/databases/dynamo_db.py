@@ -17,15 +17,15 @@ class DynamoDB(DataBaseManagerProtocol):
 
 	def delete_by_id(self, pool_id: str) -> None:
 		self.__table.delete_item(Key={"pool_id": pool_id})
-		self.logger.info("item deleted from table", pool_id)
+		self.logger.info("item deleted from table")
 		return None
 
 	def get_by_id(self, pool_id: str) -> dict:
 		response = self.__table.get_item(Key={"pool_id": pool_id}).get("Item")
-		self.logger.info("item get from table", response)
+		self.logger.info("item get from table")
 		return response
 
 	def save(self, entity: dict) -> dict:
 		self.__table.put_item(Item=entity)
-		self.logger.info("item created", entity)
+		self.logger.info("item created")
 		return entity

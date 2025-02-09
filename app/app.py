@@ -38,16 +38,16 @@ def create_pool():
 @app.exception_handler(ValidationError)
 def handle_validation_error(error: ValidationError):
 	logger.warning(error)
-	Response(
+	return Response(
 		status_code=400,
 		content_type=content_types.APPLICATION_JSON,
-		body={ "error": str(error) }
+		body={ "errors": [{"field": err["loc"][0], "message": err["msg"]} for err in error.errors()] }
 	)
 
 @app.exception_handler(Exception)
 def handle_interal_error(error: Exception):
 	logger.error(error)
-	Response(
+	return Response(
 		status_code=500,
 		content_type=content_types.APPLICATION_JSON,
 		body={ "error": str(error) }
