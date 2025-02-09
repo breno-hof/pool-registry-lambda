@@ -3,5 +3,5 @@ locals {
 	handler_entrypoint	= "app.lambda_handler"
 	timeout				= 300
 	runtime				= "python3.12"
-	source_path			= "../src"
+	source_path			= "../app"
 }
