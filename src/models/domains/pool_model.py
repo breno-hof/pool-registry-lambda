@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import List
 from enum import Enum
+from decimal import Decimal
 
 class MaterialEnum(str, Enum):
     TILE = "tile"
@@ -21,7 +22,7 @@ class PoolModel(BaseModel):
     pool_id: str
     name: str
     location: str
-    volume: float
+    volume: Decimal
     material: MaterialEnum
     heating_type: HeatingTypeEnum
     maintenance_frequency: MaintenanceFrequencyEnum

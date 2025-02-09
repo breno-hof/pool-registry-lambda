@@ -1,9 +1,6 @@
-from typing import List, Protocol, Set
+from typing import Protocol
 
 class DataBaseManagerProtocol(Protocol):
-    
-    def get_filter(self, filter: Set[str]) -> List[dict]:
-        ...
     
     def delete_by_id(self, pool_id: str) -> None:
         ...

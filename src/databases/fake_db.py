@@ -22,9 +22,6 @@ class FakeDataBase(DataBaseManagerProtocol):
             
         return cls._instance
 
-    def get_filter(self, filter: dict) -> List[dict]:
-        return list(self.database.values()) if filter == {} else [ value for value in self.database.values() if value == filter ]
-    
     def delete_by_id(self, pool_id: str) -> None:
         self.database.pop(pool_id, None) 
         return None
