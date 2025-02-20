@@ -2,7 +2,7 @@ from typing import List, Optional
 from pydantic import BaseModel, field_validator
 
 class PoolUpdateRequest(BaseModel):
-    name: Optional[str] = Nul
+    name: Optional[str]
     heating_type: Optional[str] = None
     maintenance_frequency: Optional[str] = None
     notes: List[str] = []
